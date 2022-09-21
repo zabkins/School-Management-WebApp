@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @NoArgsConstructor
@@ -17,8 +18,8 @@ public class Authority {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @ManyToOne
-    @JoinColumn(name = "account_id")
-    private Account account;
+    @ManyToMany(mappedBy = "authorities")
+    @EqualsAndHashCode.Exclude
+    private List<Account> account;
     private String role;
 }

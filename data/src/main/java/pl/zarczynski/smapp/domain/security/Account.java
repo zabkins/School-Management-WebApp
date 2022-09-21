@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.List;
+import java.util.Set;
 
 @Entity
 @NoArgsConstructor
@@ -21,6 +21,9 @@ public class Account {
     private String username;
     private String password;
     private boolean active;
-    @OneToMany(mappedBy = "account")
-    private List<Authority> authorities;
+    @ManyToMany
+    @JoinTable(name = "account_authorities",
+    joinColumns = @JoinColumn(name = "account_id",referencedColumnName = "id"),
+    inverseJoinColumns = @JoinColumn(name = "authority_id", referencedColumnName = "id"))
+    private Set<Authority> authorities;
 }
