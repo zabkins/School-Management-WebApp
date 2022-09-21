@@ -19,9 +19,9 @@ public class WebSecurityConfig {
         return http
                 .authorizeRequests()
                 .antMatchers("/").permitAll()
-                .antMatchers("/student").hasRole("STUDENT")
-                .antMatchers("/teacher").hasRole("TEACHER")
-                .antMatchers("/admin").hasRole("ADMIN")
+                .antMatchers("/student/**").hasRole("STUDENT")
+                .antMatchers("/teacher/**").hasRole("TEACHER")
+                .antMatchers("/admin/**").hasRole("ADMIN")
                 .and()
                 .formLogin()
                 .and()
