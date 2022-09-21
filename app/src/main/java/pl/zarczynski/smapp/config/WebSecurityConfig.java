@@ -24,6 +24,9 @@ public class WebSecurityConfig {
                 .antMatchers("/admin").hasRole("ADMIN")
                 .and()
                 .formLogin()
+                .and()
+                .logout()
+                .logoutSuccessUrl("/")
                 .and().build();
     }
 
