@@ -1,1 +1,3 @@
 rootProject.name = 'School-Management-WebApp'
+include 'data'
+
