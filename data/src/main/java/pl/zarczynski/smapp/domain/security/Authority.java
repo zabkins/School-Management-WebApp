@@ -16,7 +16,7 @@ import java.util.List;
 @Table(name = "authority")
 public class Authority {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @ManyToMany(mappedBy = "authorities")
     @EqualsAndHashCode.Exclude

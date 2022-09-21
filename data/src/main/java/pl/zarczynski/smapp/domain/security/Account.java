@@ -16,7 +16,7 @@ import java.util.Set;
 @EqualsAndHashCode
 public class Account {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String username;
     private String password;
