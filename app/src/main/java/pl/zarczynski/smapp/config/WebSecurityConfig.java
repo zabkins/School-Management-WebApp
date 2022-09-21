@@ -18,7 +18,10 @@ public class WebSecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
         return http
                 .authorizeRequests()
-                .antMatchers("/**").permitAll()
+                .antMatchers("/").permitAll()
+                .antMatchers("/student").hasRole("STUDENT")
+                .antMatchers("/teacher").hasRole("TEACHER")
+                .antMatchers("/admin").hasRole("ADMIN")
                 .and()
                 .formLogin()
                 .and().build();
