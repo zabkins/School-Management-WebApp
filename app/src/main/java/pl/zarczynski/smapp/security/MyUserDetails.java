@@ -10,19 +10,24 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class MyUserDetails implements UserDetails {
-
+    private Long accountId;
     private String username;
     private String password;
     private boolean active;
     private List<GrantedAuthority> authorities;
 
     public MyUserDetails(Account account){
+        this.accountId = account.getId();
         this.username = account.getUsername();
         this.password = account.getPassword();
         this.active = account.isActive();
         this.authorities = account.getAuthorities().stream()
                 .map(auth -> new SimpleGrantedAuthority(auth.getRole()))
                 .collect(Collectors.toList());
+    }
+
+    public Long getAccountId(){
+        return this.accountId;
     }
 
     @Override
