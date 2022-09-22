@@ -9,3 +9,6 @@ INSERT INTO account(username, password, active) VALUES ('testadmin','$2a$10$6RMh
 INSERT INTO account_authorities(account_id, authority_id) VALUES (1,1);
 INSERT INTO account_authorities(account_id, authority_id) VALUES (2,2);
 INSERT INTO account_authorities(account_id, authority_id) VALUES (3,3);
+
+INSERT INTO teacher(lastname, name, account_id) VALUES ('teacherLastname','teacherName',2);
+INSERT INTO student(lastname, name, account_id) VALUES ('studentLastname','studentName',1);
